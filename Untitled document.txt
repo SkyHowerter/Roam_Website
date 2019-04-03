@@ -1,0 +1,39 @@
+﻿create table roam
+(
+        id integer,
+        location text,
+        in_country integer,
+        luxury integer,
+        touristy integer,
+        expense integer,
+        scenic integer,
+        popage integer,
+        faraway integer,
+        lodging integer
+);
+
+
+
+
+
+
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (1, 'Yellowstone National Park', 1, 2, 5, 3, 5, 3, 1, 1);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (2, 'New York City, New York', 1, 4, 2, 4, 2, 2, 2, 4);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (3, 'Maui, Hawaii', 1, 3, 4, 4, 5, 4, 2, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (4, 'Grand Canyon, Arizona', 1, 2, 4, 2, 4, 2, 1, 1);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (5, 'Yosemite National Park, California', 1, 2, 5, 3, 5, 3, 1, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (6, 'San Francisco, California', 1, 4, 1, 3, 3, 1, 1, 4);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (7, 'Washington, DC', 1, 2, 4, 4, 1, 5, 2, 2);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (8, 'Boston, Massachusetts', 1, 3, 1, 3, 2, 2, 2, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (9, 'Charleston, South Carolina', 1, 4, 3, 3, 3, 4, 2, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (10, 'Seattle, Washington', 1, 4, 3, 4, 2, 2, 1, 4);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (11, 'Paris, France', 2, 5, 5, 4, 3, 5, 4, 5);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (12, 'Kibale National Park, Uganda', 2, 1, 2, 1, 5, 4, 5, 1);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (13, 'Chiang Mai, Thailand', 2, 2, 2, 1, 3, 3, 5, 2);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (14, 'Faroe Islands, Denmark', 2, 2, 1, 3, 5, 4, 3, 2);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (15, 'Tokyo, Japan', 2, 4, 4, 3, 1, 3, 4, 4);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (16, 'Irkutsk, Russia', 2, 3, 1, 2, 4, 4, 4, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (17, 'Reykjavik, Iceland', 2, 3, 3, 4, 5, 2, 3, 3);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (18, 'Skeleton Coast, Namibia', 2, 2, 1, 3, 4, 4, 5, 2);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (19, 'Rome, Italy', 2, 3, 5, 4, 2, 4, 3, 4);
+insert into public.roam (id, location, in_country, luxury, touristy, expense, scenic, popage, faraway, lodging) values (20, 'Barbados, Caribbean Islands', 2, 4, 2, 4, 4, 2, 2, 3);

@@ -1,4 +1,8 @@
-﻿create table roam
+create database roam_db;
+
+\c roam_db;
+
+create table roam
 (
         id integer,
         location text,

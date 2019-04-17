@@ -183,7 +183,7 @@
 	</br>
 		<div class = "container">
 			<div class = "row justify-content-center align-items-center">
-				<button type= "button" class = "btn btn-primary" style = "background-color: #800000; outline-color: #800000;">Find My Destination</button>
+				<button type= "button" id = "find_dest" class = "btn btn-primary" style = "background-color: #800000; outline-color: #800000;">Find My Destination</button>
 			</div>
 		</div>
 
@@ -197,7 +197,6 @@
 				outputs[i].innerHTML = sliders[i].value;
 				console.log(sliders);
 			}
-
 			sliders[0].oninput = function () {
 				outputs[0].innerHTML = this.value;
 			}
@@ -213,7 +212,14 @@
 			sliders[4].oninput = function () {
 				outputs[4].innerHTML = this.value;
 			}
-		</script>
+			</script>
+
+			<script>
+				document.getElementById('find_dest').onclick = function() {
+					var stateObj = { foo: "bar" };
+					history.pushState(stateObj, "Main Page", "/?s0="+outputs[0].innerHTML+",s1="+outputs[1].innerHTML+",s2="+outputs[2].innerHTML+",s3="+outputs[3].innerHTML+",s4="+outputs[4].innerHTML);
+				}
+			</script>
 	</div>
 </body>
 

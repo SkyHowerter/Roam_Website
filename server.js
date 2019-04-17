@@ -20,13 +20,17 @@ db.any(query).then(function (rows){
 	data = rows;
 });
 app.set('view engine', 'ejs');
-app.get('/',async function(req,res){
-  res.render('index');
-  console.log(req.query);
+app.get('/', function(req,res){
+  if(req.query){
+    var sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];
+    res.render('index', {slides: sliders});
+    console.log(req.query);
+  } else{
+    res.render('index');
+  }
 });
 
 app.post('/',function(req,res){
-
 });
 app.listen(8080,function(req, res){
   console.log("heh");

@@ -20,15 +20,15 @@ db.any(query).then(function (rows){
 	data = rows;
 });
 app.set('view engine', 'ejs');
-app.get('/',function(req,res){
+app.get('/',async function(req,res){
   res.render('index');
-  console.log(data);
+  console.log(req.query);
 });
 
 app.post('/',function(req,res){
 
 });
-
-app.listen(8080, function(){
+app.listen(8080,function(req, res){
   console.log("heh");
+    
 });

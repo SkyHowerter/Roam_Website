@@ -45,7 +45,6 @@
 			background: #800000;
 			cursor: pointer;
 		}
-		
 	</style>
 </head>
 
@@ -70,9 +69,9 @@
 						<div class="col">
 
 							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[0] %> class="slider" id="myRange1"
-									position="relative">
-								</div>
+								<input type="range" min="1" max="100" value=<%= slides[0] %> class="slider"
+									id="myRange1" position="relative">
+							</div>
 							</br>
 							<p align="center"><span id="slide1"></span></p>
 						</div>
@@ -95,9 +94,9 @@
 						<div class="col">
 
 							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[1] %> class="slider" id="myRange2"
-									position="relative">
-								</div>
+								<input type="range" min="1" max="100" value=<%= slides[1] %> class="slider"
+									id="myRange2" position="relative">
+							</div>
 							</br>
 							<p align="center"><span id="slide2"></span></p>
 						</div>
@@ -120,9 +119,9 @@
 						<div class="col">
 
 							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[2] %> class="slider" id="myRange3"
-									position="relative">
-								</div>
+								<input type="range" min="1" max="100" value=<%= slides[2] %> class="slider"
+									id="myRange3" position="relative">
+							</div>
 							</br>
 							<p align="center"><span id="slide3"></span></p>
 						</div>
@@ -145,8 +144,8 @@
 						<div class="col">
 
 							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[3] %> class="slider" id="myRange4"
-									position="relative">
+								<input type="range" min="1" max="100" value=<%= slides[3] %> class="slider"
+									id="myRange4" position="relative">
 							</div>
 							</br>
 							<p align="center"><span id="slide4"></span></p>
@@ -180,17 +179,44 @@
 				</div>
 			</div>
 		</div>
-	</br>
-		<div class = "container">
-			<div class = "row justify-content-center align-items-center">
-				<a id = "find_dest" class = "btn btn-primary" style = "background-color: #800000; outline-color: #800000;"><font color = "white">Find My Destination</font></a>
+		</br>
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<a id="find_dest" class="btn btn-primary" style="background-color: #800000; outline-color: #800000;">
+					<font color="white">Find My Destination</font>
+				</a>
 			</div>
 		</div>
 
-
+		<div class="modal" id="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Country to Visit</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>You should visit <%= modal %></p>
+					</div>
+					<div class="modal-footer">
+						<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</br>
+		<h2 style="display:none;" id="modalhidden"><%=modal %></h2>
 		<script>
 			var sliders = new Array(5);
 			var outputs = new Array(5);
+			var modal = document.getElementById("modalhidden").innerHTML;
+			console.log(modalhidden);
+			if (modalhidden != "") {
+				$("#modal").modal('show');
+			}
 			for (i = 0; i < 5; i++) {
 				sliders[i] = document.getElementById("myRange" + (i + 1));
 				outputs[i] = document.getElementById("slide" + (i + 1));
@@ -212,11 +238,11 @@
 			sliders[4].oninput = function () {
 				outputs[4].innerHTML = this.value;
 			}
-			document.getElementById('find_dest').onclick = function() {
-					var stateObj = { foo: "bar" };
-					document.getElementById('find_dest').href = "/?s0="+outputs[0].innerHTML+"&s1="+outputs[1].innerHTML+"&s2="+outputs[2].innerHTML+"&s3="+outputs[3].innerHTML+"&s4="+outputs[4].innerHTML;
+			document.getElementById('find_dest').onclick = function () {
+				var stateObj = { foo: "bar" };
+				document.getElementById('find_dest').href = "/?s0=" + outputs[0].innerHTML + "&s1=" + outputs[1].innerHTML + "&s2=" + outputs[2].innerHTML + "&s3=" + outputs[3].innerHTML + "&s4=" + outputs[4].innerHTML;
 			}
-			</script>
+		</script>
 
 	</div>
 </body>

@@ -25,15 +25,15 @@ app.get('/', function(req,res){
   var modal;
   if(Object.keys(req.query).length){
     sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];
-    max = 0;
+    min = Number.MAX_SAFE_INTEGER;
     for(i = 0; i < Object.keys(data).length; i++){
-      var num = (6 - Math.abs(sliders[0]/20 - data[i].touristy))/6;
-      num *= (6 - Math.abs(sliders[1]/20 - data[i].luxury))/6;
-      num *= (6 - Math.abs(sliders[2]/20 - data[i].expense))/6;
-      num *= (6 - Math.abs(sliders[3]/20 - data[i].popage))/6;
-      num *= (6 - Math.abs(sliders[4]/20 - data[i].faraway))/6;
-      if(max < num){
-        max = num;
+      var num = Math.abs(sliders[0]/20 - data[i].touristy);
+      num *= Math.abs(sliders[1]/20 - data[i].luxury);
+      num *= Math.abs(sliders[2]/20 - data[i].expense);
+      num *= Math.abs(sliders[3]/20 - data[i].popage);
+      num *= Math.abs(sliders[4]/20 - data[i].faraway);
+      if(min > num){
+        min = num;
         modal = data[i].location;
       }
     }

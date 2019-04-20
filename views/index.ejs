@@ -49,131 +49,155 @@
 </head>
 
 <body>
-	<div class="jumbotron text-center">
-		<h1>Roam.</h1>
-		<h3>Vacation Finder</h3>
-	</div>
+	<a href="/" style="display:block;text-decoration: inherit; color:inherit;">
+		<div class="jumbotron text-center">
+			<h1>Roam.</h1>
+			<h3>Vacation Finder</h3>
+		</div>
+	</a>
+
 	<div class="blocktext">
 		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col">
-					<div class="row">
-						<div class="col-sm">
-							<p class="text-left">Off the beaten path</p>
+			<div class="modal" id="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Country to Visit</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
 						</div>
-						<div class="col-sm">
-							<p class="text-right">Tourist Destination</p>
+						<div class="modal-body">
+							<p>You should visit <%= modal %></p>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[0] %> class="slider"
-									id="myRange1" position="relative">
-							</div>
-							</br>
-							<p align="center"><span id="slide1"></span></p>
+						<div class="modal-footer">
+							<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col">
-					<div class="row">
-						<div class="col-sm">
-							<p class="text-left">Aesthetic</p>
-						</div>
-						<div class="col-sm">
-							<p class="text-right">Luxury</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[1] %> class="slider"
-									id="myRange2" position="relative">
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col">
+						<div class="row">
+							<div class="col-sm">
+								<p class="text-left">Off the beaten path</p>
 							</div>
-							</br>
-							<p align="center"><span id="slide2"></span></p>
+							<div class="col-sm">
+								<p class="text-right">Tourist Destination</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+
+								<div class="row">
+									<input type="range" min="1" max="100" value=<%= slides[0] %> class="slider"
+										id="myRange1" position="relative">
+								</div>
+								</br>
+								<p align="center"><span id="slide1"></span></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col">
-					<div class="row">
-						<div class="col-sm">
-							<p class="text-left">Cheap</p>
-						</div>
-						<div class="col-sm">
-							<p class="text-right">Expensive</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[2] %> class="slider"
-									id="myRange3" position="relative">
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col">
+						<div class="row">
+							<div class="col-sm">
+								<p class="text-left">Aesthetic</p>
 							</div>
-							</br>
-							<p align="center"><span id="slide3"></span></p>
+							<div class="col-sm">
+								<p class="text-right">Luxury</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+
+								<div class="row">
+									<input type="range" min="1" max="100" value=<%= slides[1] %> class="slider"
+										id="myRange2" position="relative">
+								</div>
+								</br>
+								<p align="center"><span id="slide2"></span></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col">
-					<div class="row">
-						<div class="col-sm">
-							<p class="text-left">Old Population</p>
-						</div>
-						<div class="col-sm">
-							<p class="text-right">Young Population</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row">
-								<input type="range" min="1" max="100" value=<%= slides[3] %> class="slider"
-									id="myRange4" position="relative">
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col">
+						<div class="row">
+							<div class="col-sm">
+								<p class="text-left">Cheap</p>
 							</div>
-							</br>
-							<p align="center"><span id="slide4"></span></p>
+							<div class="col-sm">
+								<p class="text-right">Expensive</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+
+								<div class="row">
+									<input type="range" min="1" max="100" value=<%= slides[2] %> class="slider"
+										id="myRange3" position="relative">
+								</div>
+								</br>
+								<p align="center"><span id="slide3"></span></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col">
-					<div class="row">
-						<div class="col-sm">
-							<p class="text-left">Close to home</p>
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col">
+						<div class="row">
+							<div class="col-sm">
+								<p class="text-left">Old Population</p>
+							</div>
+							<div class="col-sm">
+								<p class="text-right">Young Population</p>
+							</div>
 						</div>
-						<div class="col-sm">
-							<p class="text-right">Far from home</p>
+						<div class="row">
+							<div class="col">
+
+								<div class="row">
+									<input type="range" min="1" max="100" value=<%= slides[3] %> class="slider"
+										id="myRange4" position="relative">
+								</div>
+								</br>
+								<p align="center"><span id="slide4"></span></p>
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col">
-
-							<div class="row">
-								<input type="range" min="1" max="100" value="50" class="slider" id="myRange5"
-									position="relative">
+				</div>
+			</div>
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col">
+						<div class="row">
+							<div class="col-sm">
+								<p class="text-left">Close to home</p>
 							</div>
-							</br>
-							<p align="center"><span id="slide5"></span></p>
+							<div class="col-sm">
+								<p class="text-right">Far from home</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+
+								<div class="row">
+									<input type="range" min="1" max="100" value=<%= slides[4] %> class="slider"
+										id="myRange5" position="relative">
+								</div>
+								</br>
+								<p align="center"><span id="slide5"></span></p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -187,41 +211,20 @@
 				</a>
 			</div>
 		</div>
-
-		<div class="modal" id="modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Country to Visit</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<p>You should visit <%= modal %></p>
-					</div>
-					<div class="modal-footer">
-						<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
 		</br>
 		<h2 style="display:none;" id="modalhidden"><%=modal %></h2>
 		<script>
 			var sliders = new Array(5);
 			var outputs = new Array(5);
 			var modal = document.getElementById("modalhidden").innerHTML;
-			console.log(modal);
 			if (modal != "") {
 				$("#modal").modal('show');
+
 			}
 			for (i = 0; i < 5; i++) {
 				sliders[i] = document.getElementById("myRange" + (i + 1));
 				outputs[i] = document.getElementById("slide" + (i + 1));
 				outputs[i].innerHTML = sliders[i].value;
-				console.log(sliders);
 			}
 			sliders[0].oninput = function () {
 				outputs[0].innerHTML = this.value;

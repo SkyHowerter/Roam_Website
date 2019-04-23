@@ -29,6 +29,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req,res){
   var sliders;
   var modal;
+  console.log("heh2");
   if(Object.keys(req.query).length){
     sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];
     min = Number.MAX_SAFE_INTEGER;

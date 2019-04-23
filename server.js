@@ -6,7 +6,7 @@ var app = express();
 
 const conf = {
   user: 'xnkgmeyyqssnlq',
-  host: 'ec2-184-73-210-189.compute-1.amazonaws.com  ',
+  host: 'ec2-184-73-210-189.compute-1.amazonaws.com',
   database: 'd8579a8ksq8je1',
   password: '11996758fb18b10fbce4cf8b6b918830ed04101fc2a654d89abf950a27d76f23',
   port: 5432,

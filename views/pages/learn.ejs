@@ -1,0 +1,100 @@
+<% include ../partials/header %>
+<% include ../partials/menu %>
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-4">
+				<div class="card">
+				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
+				<%
+				var image_src = '../resources/img/helmet.jpg'; 
+				if(details) {
+					image_src = details.img_src;
+				}
+				%>
+				<img class="card-img-top" id="player_img" src= "<%- image_src %>" alt="Choose your location">
+				  <div class="card-body mx-auto">
+					<form class="form"action="/learn/post" method="get">
+						<select class="custom-select" name="country_choice" onchange="this.form.submit()">
+							 <option selected>Select location</option>
+							 <!-- TODO: Populate our select with player options
+							 			For each player, set a new option with a value matching the palyer's id, 
+							 			but will display the player's name-->
+							<%
+							if(data) {
+								var pd = '';
+								data.forEach(function(item){
+									pd += '<option value="' + item.id + '">' + item.location + '</option>';
+								}); %>
+								<%- pd %>
+							<% } %>
+						</select>
+					</form>
+				  </div>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<%
+							var location = '';
+							var in_country = '';
+							var luxury = 0;
+							var touristy = 0;
+							var expense = 0;
+							var scenic = 0; 
+							var popage = 0; 
+							var faraway = 0;
+							var lodging = 0;
+							var continent = 0;
+							if(details) {
+								location = details.location;
+								in_country = details.in_country;
+								luxury = details.luxury;
+								touristy = details.touristy;
+								expense = details.expense;
+								scenic = details.scenic;
+								popage = details.popage;
+								lodging = details.lodging;
+							} %>
+						</tr>
+						<tr>
+							<th>Location</th>
+							<td><%- location %></td>
+						</tr>
+						<tr>
+							<th>Country</th>
+							<td><%- in_country %></td>
+						</tr>
+						<tr>
+							<th>Luxury</th>
+							<td><%- luxury %></td>
+						</tr>
+						<tr>
+							<th>Touristy</th>
+							<td><%- touristy %></td>
+						</tr>
+						<tr>
+							<th>Expense</th>
+							<td><%- expense %></td>
+						</tr>
+						<tr>
+							<th>Scenic</th>
+							<td><%- scenic %></td>
+						</tr>
+						<tr>
+							<th>Population age</th>
+							<td><%- popage %></td>
+						</tr>
+						<tr>
+							<th>Lodging</th>
+							<td><%- lodging %></td>
+						</tr>																																				
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+<% include ../partials/footer %>

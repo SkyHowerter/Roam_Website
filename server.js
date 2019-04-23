@@ -3,6 +3,10 @@ var url = require('url');
 var psql = require('pg-promise')();
 var express = require('express');
 var app = express();
+app.use(bodyParser.json());              // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+
 
 const conf = {
   user: 'xnkgmeyyqssnlq',

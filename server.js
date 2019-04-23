@@ -11,8 +11,8 @@ const conf = {
   password: '11996758fb18b10fbce4cf8b6b918830ed04101fc2a654d89abf950a27d76f23',
   port: 5432,
 };
-
-var db = psql(conf);
+const dbConfig = process.env.DATABASE_URL;
+var db = psql(dbConfig);
 var data;
 var query = "select * from roam;";
 

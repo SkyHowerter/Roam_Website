@@ -46,7 +46,7 @@ app.get('/', function(req,res){
 
 app.post('/',function(req,res){
 });
-app.listen(8080,function(req, res){
+app.listen(process.env.port,function(req, res){
   console.log("heh");
     
 });

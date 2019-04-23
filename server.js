@@ -8,15 +8,6 @@ var bodyParser = require('body-parser'); //Ensure our body-parser tool has been 
 app.use(bodyParser.json());              // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-
-
-const conf = {
-  user: 'xnkgmeyyqssnlq',
-  host: 'ec2-184-73-210-189.compute-1.amazonaws.com',
-  database: 'd8579a8ksq8je1',
-  password: '11996758fb18b10fbce4cf8b6b918830ed04101fc2a654d89abf950a27d76f23',
-  port: 5432,
-};
 const dbConfig = process.env.DATABASE_URL;
 var db = psql(dbConfig);
 var data;
@@ -25,11 +16,36 @@ var query = "select * from roam;";
 db.any(query).then(function (rows){
   data = rows;
 });
+
+db.any(query).then(function (rows){
+  data = rows;
+});
 app.set('view engine', 'ejs');
-app.get('/', function(req,res){
+app.use(express.static(__dirname + '/'));
+
+app.get('/', function(req, res) {
+  res.render('pages/login',{
+    local_css:"signin.css", 
+    my_title:"Roam. login"
+  });
+});
+
+app.get('/register', function(req, res) {
+  res.render('pages/register',{
+    my_title:"Registration Page"
+  });
+});
+
+app.get('/login', function(req, res) {
+  res.render('pages/login',{
+    local_css:"signin.css", 
+    my_title:"Login Page"
+  });
+});
+
+app.get('/home/', function(req,res){
   var sliders;
   var modal;
-  console.log("heh2");
   if(Object.keys(req.query).length){
     sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];
     min = Number.MAX_SAFE_INTEGER;
@@ -48,12 +64,41 @@ app.get('/', function(req,res){
   } else{
     sliders = ["50","50","50","50","50"];
   }
-  res.render('index', {slides: sliders, modal: modal});
+  res.render('pages/home', {slides: sliders, modal: modal, my_title: "Roam. home"});
 });
 
-app.post('/',function(req,res){
+app.get('/learn', function(req, res) {
+  db.any('select id, location from roam;')
+  .then(function (rows) {
+    res.render('pages/learn',{
+      my_title: "Learn",
+      data: rows,
+      details: '',
+      gameCount: ''
+    })
+  })
+});
+
+app.get('/learn/post', function(req, res) {
+  var countries = 'select id, location from roam;';
+  var country = 'select * from roam where id = ' + req.query.country_choice + ';';
+  db.task('get-info', task => {
+    return task.batch([
+      task.any(countries),
+      task.any(country)
+    ]);
+  })
+  .then(info => {
+    res.render('pages/learn',{
+      my_title: "Learn",
+      data: info[0],
+      details: info[1][0]
+    })
+  })
+});
+
+app.post('/pages/home/',function(req,res){
 });
 app.listen(process.env.PORT,function(req, res){
-  console.log("heh");
   console.log('Listening on port %d', process.env.PORT);
 });

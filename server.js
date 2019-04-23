@@ -53,7 +53,7 @@ app.get('/', function(req,res){
 
 app.post('/',function(req,res){
 });
-app.listen(process.env.port,process.env.host,function(req, res){
+app.listen(process.env.PORT,function(req, res){
   console.log("heh");
-  console.log('Listening on port %d', process.env.port);
+  console.log('Listening on port %d', process.env.PORT);
 });

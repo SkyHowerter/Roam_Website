@@ -12,7 +12,7 @@
 					image_src = details.img_src;
 				}
 				%>
-				<img class="card-img-top" id="player_img" src= "<%- image_src %>" alt="Choose your location">
+				<img class="card-img-top" id="player_img" src= <%- image_src %> alt="Choose your location">
 				  <div class="card-body mx-auto">
 					<form class="form"action="/learn/post" method="get">
 						<select class="custom-select" name="country_choice" onchange="this.form.submit()">

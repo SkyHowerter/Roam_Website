@@ -28,14 +28,7 @@ app.use(express.static(__dirname + '/'));
 
 app.get('/', function (req, res) {
   res.render('pages/login', {
-    local_css: "signin.css",
     my_title: "Roam. login"
-  });
-});
-
-app.get('/register', function (req, res) {
-  res.render('pages/register', {
-    my_title: "Registration Page"
   });
 });
 

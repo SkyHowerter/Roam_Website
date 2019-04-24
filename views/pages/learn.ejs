@@ -1,30 +1,43 @@
 <% include ../partials/header %>
 <% include ../partials/menu %>
+<!DOCTYPE html>
+<html>	
+
+<head>
+	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Roam banner">
+    <br>
+	<br>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<div class="container">
 		<br>
 		<div class="row">
 			<div class="col-4">
 				<div class="card">
-				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
 				<%
-				var image_src = '../resources/img/helmet.jpg'; 
+				var image_src = '../resources/img/flags/44.png'; 
 				if(details) {
-					image_src = details.img_src;
+					image_src = '../resources/img/flags/' + details.id + '.png';
 				}
 				%>
-				<img class="card-img-top" id="player_img" src= <%=- image_src %> alt="Choose your location">
+				<img class="card-img-top" id="flag_img" src= "<%- image_src %>" alt="Choose your location">
 				  <div class="card-body mx-auto">
 					<form class="form"action="/learn/post" method="get">
 						<select class="custom-select" name="country_choice" onchange="this.form.submit()">
 							 <option selected>Select location</option>
-							 <!-- TODO: Populate our select with player options
-							 			For each player, set a new option with a value matching the palyer's id, 
-							 			but will display the player's name-->
 							<%
 							if(data) {
 								var pd = '';
 								data.forEach(function(item){
-									pd += '<option value="' + item.id + '">' + item.location + '</option>';
+									pd += '<option value="' + item.id+ '">' + item.country + '</option>';
 								}); %>
 								<%- pd %>
 							<% } %>
@@ -38,59 +51,81 @@
 					<table class="table">
 						<tr>
 							<%
-							var location = '';
-							var in_country = '';
-							var luxury = 0;
-							var touristy = 0;
-							var expense = 0;
-							var scenic = 0; 
-							var popage = 0; 
-							var faraway = 0;
-							var lodging = 0;
-							var continent = 0;
+							var country = '';
+							var continent = '';
+							var region = '';
+							var population = 0;
+							var land = 0;
+							var incar = 0; 
+							var popa = 0; 
+							var gdp = 0;
+							var fores = 0;
+							var lifexp = 0;
+							var arabcli = 0;
+							var coalen = 0;
 							if(details) {
-								location = details.location;
-								in_country = details.in_country;
-								luxury = details.luxury;
-								touristy = details.touristy;
-								expense = details.expense;
-								scenic = details.scenic;
-								popage = details.popage;
-								lodging = details.lodging;
+								country = details.country;
+								continent = details.continent;
+								region = details.region;
+								population = details.population;
+								land = details.landarea;
+								incar = details.incarcerationrate; 
+								popa = details.ageofpopulation; 
+								gdp = details.gdp;
+								fores = details.forestedportion;
+								lifexp = details.lifeexpectancy;
+								arabcli = details.arableclimateportion;
+								coalen = details.coastlength;
 							} %>
 						</tr>
 						<tr>
-							<th>Location</th>
-							<td><%- location %></td>
-						</tr>
-						<tr>
 							<th>Country</th>
-							<td><%- in_country %></td>
+							<td><%- country %></td>
 						</tr>
 						<tr>
-							<th>Luxury</th>
-							<td><%- luxury %></td>
+							<th>Continent</th>
+							<td><%- continent %></td>
 						</tr>
 						<tr>
-							<th>Touristy</th>
-							<td><%- touristy %></td>
+							<th>Region</th>
+							<td><%- region %></td>
 						</tr>
 						<tr>
-							<th>Expense</th>
-							<td><%- expense %></td>
+							<th>Total population (2015 estimate)</th>
+							<td><%- population %></td>
 						</tr>
 						<tr>
-							<th>Scenic</th>
-							<td><%- scenic %></td>
+							<th>Total Land Area (km^2)</th>
+							<td><%- land %></td>
 						</tr>
 						<tr>
-							<th>Population age</th>
-							<td><%- popage %></td>
+							<th>Incarcerated Population per 100,000 pop.</th>
+							<td><%- incar %></td>
 						</tr>
 						<tr>
-							<th>Lodging</th>
-							<td><%- lodging %></td>
-						</tr>																																				
+							<th>Average age of population (median)</th>
+							<td><%- popa %></td>
+						</tr>
+						<tr>
+							<th>PPP per capita (Purchasing Power Parity)</th>
+							<td><%- gdp %></td>
+						</tr>	
+						<tr>
+							<th>Percent of total land that remains forested</th>
+							<td><%- fores %></td>
+						</tr>
+						<tr>
+							<th>Median Life expectancy (years)</th>
+							<td><%- lifexp %></td>
+						</tr>					
+						<tr>
+							<th>Percent of total land considered arable</th>
+							<td><%- arabcli/100 %></td>
+						</tr>
+						<tr>
+							<th>Total coast length (km)</th>
+							<td><%- coalen %></td>
+						</tr>																
 					</table>
 				</div>
 			</div>

@@ -16,19 +16,6 @@ var firebase = require('firebase');
 require('firebase/auth');
 require('firebase/database');
 // Initialize Firebase for the application
-import firebase from "firebase";
-
-var config = {
-  apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
-  authDomain: "roam-57db5.firebaseapp.com",
-  databaseURL: "https://roam-57db5.firebaseio.com",
-  projectId: "roam-57db5",
-  storageBucket: "roam-57db5.appspot.com",
-  messagingSenderId: "646835090112"
-};
-
-firebase.initializeApp(config);
-
 db.any(query).then(function (rows) {
   data = rows;
 });
@@ -56,7 +43,6 @@ app.get('/login', function (req, res) {
   res.render('pages/login', {
     my_title: "Login Page"
   });
-  
 });
 
 app.get('/home/', function (req, res) {

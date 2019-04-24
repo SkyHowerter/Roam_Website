@@ -1,32 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="home.html">
-		<img class="rounded-circle" src="../resources/img/cu_boulder_logo.jpg" alt="" width="30" height="30">
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-		aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="/home">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/register">Register</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/learn">Learn more</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" style="right:0" onclick="logout()" href="/"> <span id="user_info"></span> | Logout</a>
-			</li>
-		</ul>
-
-	</div>
-	<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
-	<script>
+<div id="app" class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand" src = "../resources/img/cu_boulder_logo.jpg" href="/home">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/learn">Learn More</a>
+                </li>
+            </ul>
+						<ul class="navbar-nav">
+								<li class="nav-item">
+									<a class="nav-link" onclick="logout()" href="/"> <span id="user_info"></span> | Logout</a>
+								</li>
+							</ul>
+        </div>
+    </nav>
+</div>
+<script>
 		// Initialize Firebase
 		console.log("oi1");
 		var config = {
@@ -54,4 +49,3 @@
 			});
 		}
 	</script>
-</nav>

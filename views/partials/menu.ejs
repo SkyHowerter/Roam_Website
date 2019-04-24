@@ -37,6 +37,9 @@
 						firebase.auth().onAuthStateChanged(function (user) {
 							if (user) {
 								document.getElementById("user_info").innerHTML = user.displayName;
+							} else{
+								document.getElementById("user_info").innerHTML = "Login";
+								document.getElementById("user_info").href = "/";
 							}
 						});
 						function logout() {

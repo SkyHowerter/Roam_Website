@@ -1,30 +1,162 @@
 <% include ../partials/header %>
-	
-	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Registration Page Banner for CU Football">
-    <br>
+
+
+
+<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Registration Page Banner for CU Football">
+
+    <br>
+
+<br>
+
+<div class="container">
+
+	<form action="home">
+
+		<div class="form-group row">
+
+			<label class="col-sm-2 col-form-label"   for="emailAddress">Email address</label>
+
+			<div class="col-sm-10">
+
+				<input type="email" class="form-control" name="emailAddress" id="emailAddress"
+					placeholder="Enter email">
+
+			</div>
+
+		</div>
+
+		<div class="form-group row">
+
+			<label  class="col-sm-2 col-form-label" for="passwordFirst">Password</label>
+
+			<div class="col-sm-10">
+
+				<input type="password" class="form-control" id="passwordFirst" name="passwordFirst"
+					placeholder="Password">
+
+			</div>
+
+		</div>
+
+		<div class="form-group row">
+
+			<label  class="col-sm-2 col-form-label" for="passwordConfirm">Confirm Password</label>
+
+			<div class="col-sm-10">
+
+				<input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm"
+					placeholder="Confirm Password">
+
+			</div>
+
+		</div>
+
+		<input type="submit" value="submit" class="btn btn-primary btn-block" id="submit_button" onclick="check()">
+
+		<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
+				authDomain: "roam-57db5.firebaseapp.com",
+				databaseURL: "https://roam-57db5.firebaseio.com",
+				projectId: "roam-57db5",
+				storageBucket: "roam-57db5.appspot.com",
+				messagingSenderId: "646835090112"
+			};
+			firebase.initializeApp(config);
+		</script>
+
+		<script>
+
+			document.getElementById("submit_button").disabled = true;
+
+			document.getElementById("passwordFirst").onkeyup = function () {
+
+				var passMatch = document.getElementById("passwordFirst").value == document.getElementById("passwordConfirm").value
+
+				if (passMatch && document.getElementById("emailAddress").value.length != 0 && document.getElementById("passwordFirst").value.length != 0) {
+
+					document.getElementById("submit_button").disabled = false;
+
+				}
+
+				else {
+
+					document.getElementById("submit_button").disabled = true;
+
+				}
+
+			}
+
+			document.getElementById("emailAddress").onkeyup = function () {
+
+				var passMatch = document.getElementById("passwordFirst").value == document.getElementById("passwordConfirm").value
+
+				if (passMatch && document.getElementById("emailAddress").value.length != 0 && document.getElementById("passwordFirst").value.length != 0) {
+
+					document.getElementById("submit_button").disabled = false;
+
+				}
+
+				else {
+
+					document.getElementById("submit_button").disabled = true;
+
+				}
+
+			}
+
+
+
+			document.getElementById("passwordConfirm").onkeyup = function () {
+
+				var passMatch = document.getElementById("passwordFirst").value == document.getElementById("passwordConfirm").value
+
+				if (passMatch && document.getElementById("emailAddress").value.length != 0 && document.getElementById("passwordFirst").value.length != 0) {
+
+					document.getElementById("submit_button").disabled = false;
+
+				}
+
+				else {
+
+					document.getElementById("submit_button").disabled = true;
+
+				}
+
+			}
+
+			function check() {
+
+				var passMatch = document.getElementById("passwordFirst").value == document.getElementById("passwordConfirm").value
+
+				if (passMatch && document.getElementById("emailAddress").value.length != 0 && document.getElementById("passwordFirst").value.length >= 8) {
+
+					document.getElementById("submit_button").disabled = false;
+
+					firebase.auth().createUserWithEmailAndPassword(document.getElementById("emailAddress").value, document.getElementById("passwordFirst").value).catch(function (error) {
+						// Handle Errors here.
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						// ...
+					});
+				}
+
+				else {
+
+					document.getElementById("submit_button").disabled = true;
+
+				}
+
+			}
+
+		</script>
+
+	</form>
+
 	<br>
-	<div class="container">
-		<form action="home">
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label"  for="emailAddress">Email address</label>
-				<div class="col-sm-10">
-					<input type="email" class="form-control" name="emailAddress" id="emailAddress" placeholder="Enter email">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label  class="col-sm-2 col-form-label" for="passwordFirst">Password</label>
-				<div class="col-sm-10">
-					<input type="password" class="form-control" id="passwordFirst" name="passwordFirst" placeholder="Password">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label  class="col-sm-2 col-form-label" for="passwordConfirm">Confirm Password</label>
-				<div class="col-sm-10">
-					<input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
-				</div>
-			</div>
-			<input type="submit" value="submit" class="btn btn-primary btn-block">
-		</form>
-		<br>
-	</div>
+
+</div>
+
 <% include ../partials/footer %>

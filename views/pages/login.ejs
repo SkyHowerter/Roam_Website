@@ -25,29 +25,64 @@
 
 	}
 </style>
+
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+<h1>Login</h1>
+<div id="firebaseui-auth-container"></div>
+<div id="loader">Loading...</div>
+
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
-    authDomain: "roam-57db5.firebaseapp.com",
-    databaseURL: "https://roam-57db5.firebaseio.com",
-    projectId: "roam-57db5",
-    storageBucket: "roam-57db5.appspot.com",
-    messagingSenderId: "646835090112"
-  };
-  firebase.initializeApp(config);
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
+		authDomain: "roam-57db5.firebaseapp.com",
+		databaseURL: "https://roam-57db5.firebaseio.com",
+		projectId: "roam-57db5",
+		storageBucket: "roam-57db5.appspot.com",
+		messagingSenderId: "646835090112"
+	};
+	firebase.initializeApp(config);
 </script>
 <script>
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
-ui.start('#firebaseui-auth-container', {
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
-  ],
-  // Other config options...
-});
+	// Initialize the FirebaseUI Widget using Firebase.
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	var firebase = require('firebase');
+	var firebaseui = require('firebaseui');
+	var uiConfig = {
+		callbacks: {
+			signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+				// User successfully signed in.
+				// Return type determines whether we continue the redirect automatically
+				// or whether we leave that to developer to handle.
+				return true;
+			},
+			uiShown: function () {
+				// The widget is rendered.
+				// Hide the loader.
+				document.getElementById('loader').style.display = 'none';
+			}
+		},
+		// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+		signInFlow: 'popup',
+		signInSuccessUrl: '<url-to-redirect-to-on-success>',
+		signInOptions: [
+			// Leave the lines as is for the providers you want to offer your users.
+			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+			firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+			firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+			firebase.auth.GithubAuthProvider.PROVIDER_ID,
+			firebase.auth.EmailAuthProvider.PROVIDER_ID,
+			firebase.auth.PhoneAuthProvider.PROVIDER_ID
+		],
+		// Terms of service url.
+		tosUrl: '<your-tos-url>',
+		// Privacy policy url.
+		privacyPolicyUrl: '<your-privacy-policy-url>'
+	};
+	ui.start('#firebaseui-auth-container', uiConfig);
 </script>
 <% include ../partials/footer %>

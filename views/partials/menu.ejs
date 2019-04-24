@@ -18,10 +18,10 @@
 				<a class="nav-link" href="/learn">Learn more</a>
 			</li>
 			<div class="form-inline my-2 my-lg-0">
-					<a class="nav-link" style="right:0"> <span id = "user_info"></span>|Logout</a>
-				</div>
+				<a class="nav-link" style="right:0" onclick="logout()"> <span id="user_info"></span>|Logout</a>
+			</div>
 		</ul>
-		
+
 	</div>
 	<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
 	<script>
@@ -39,10 +39,17 @@
 		console.log("oi2");
 	</script>
 	<script>
-		firebase.auth().onAuthStateChanged(function(user){
-			if(user){
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
 				document.getElementById("user_info").innerHTML = user.displayName;
 			}
 		});
+		function logout() {
+			firebase.auth().signOut().then(function () {
+				// Sign-out successful.
+			}, function (error) {
+				// An error happened.
+			});
+		}
 	</script>
 </nav>

@@ -62,34 +62,33 @@ app.get('/home/', function (req, res) {
   res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home" });
 });
 
-app.get('/learn', function (req, res) {
-  db.any('select id, location from roam;')
-    .then(function (rows) {
-      res.render('pages/learn', {
-        my_title: "Learn",
-        data: rows,
-        details: '',
-        gameCount: ''
-      })
+app.get('/learn', function(req, res) {
+  db.any('select id, country from countries;')
+  .then(function (rows) {
+    res.render('pages/learn',{
+      my_title: "Learn",
+      data: rows,
+      details: ''
     })
+  })
 });
 
-app.get('/learn/post', function (req, res) {
-  var countries = 'select id, location from roam;';
-  var country = 'select * from roam where id = ' + req.query.country_choice + ';';
+app.get('/learn/post', function(req, res) {
+  var cntrs = 'select ID, Country from countries;';
+  var cntr = 'select * from countries where ID = ' + req.query.country_choice + ';';
   db.task('get-info', task => {
     return task.batch([
-      task.any(countries),
-      task.any(country)
+      task.any(cntrs),
+      task.any(cntr)
     ]);
   })
-    .then(info => {
-      res.render('pages/learn', {
-        my_title: "Learn",
-        data: info[0],
-        details: info[1][0]
-      })
+  .then(info => {
+    res.render('pages/learn',{
+      my_title: "Learn",
+      data: info[0],
+      details: info[1][0]
     })
+  })
 });
 
 app.post('/pages/home/', function (req, res) {

@@ -17,7 +17,8 @@
 			<li class="nav-item">
 				<a class="nav-link" href="/learn">Learn more</a>
 			</li>
-			<li class = "nav-item" id="user_info" style = "color: white">
+			<li class = "nav-item"style = "color: white">
+				<p id="user_info" ></p>
 			</li>
 		</ul>
 		<div class="form-inline my-2 my-lg-0">
@@ -42,6 +43,7 @@
 	<script>
 		firebase.auth().onAuthStateChanged(function(user){
 			if(user){
+				console.log(user);
 				document.getElementById("user_info").innerHTML = user.DisplayName;
 			}
 		});

@@ -1,24 +1,49 @@
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="home.html">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="home.html">
 		<img class="rounded-circle" src="../resources/img/cu_boulder_logo.jpg" alt="" width="30" height="30">
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+		aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarText">
+	</button>
+	<div class="collapse navbar-collapse" id="navbarText">
 		<ul class="navbar-nav mr-auto">
-		  <li class="nav-item">
-			<a class="nav-link" href="/home">Home</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="/register">Register</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="/learn">Learn more</a>
-		  </li>
+			<li class="nav-item">
+				<a class="nav-link" href="/home">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/register">Register</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/learn">Learn more</a>
+			</li>
+			<li class = "nav-item" id="user_info">
+			</li>
 		</ul>
 		<div class="form-inline my-2 my-lg-0">
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
 		</div>
-	  </div>
-	</nav>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		console.log("oi1");
+		var config = {
+			apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
+			authDomain: "roam-57db5.firebaseapp.com",
+			databaseURL: "https://roam-57db5.firebaseio.com",
+			projectId: "roam-57db5",
+			storageBucket: "roam-57db5.appspot.com",
+			messagingSenderId: "646835090112"
+		};
+		firebase.initializeApp(config);
+		console.log("oi2");
+	</script>
+	<script>
+		firebase.auth().onAuthStateChanged(function(user){
+			if(user){
+				document.getElementById("user_info").innerHTML = user.DisplayName;
+			}
+		});
+	</script>
+</nav>

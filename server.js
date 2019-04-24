@@ -16,6 +16,8 @@ var firebase = require('firebase');
 require('firebase/auth');
 require('firebase/database');
 // Initialize Firebase for the application
+import firebase from "firebase";
+
 var config = {
   apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
   authDomain: "roam-57db5.firebaseapp.com",
@@ -54,6 +56,32 @@ app.get('/login', function (req, res) {
   res.render('pages/login', {
     my_title: "Login Page"
   });
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	console.log("oi");
+	var uiConfig = {
+		callbacks: {
+			signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+				// User successfully signed in.
+				// Return type determines whether we continue the redirect automatically
+				// or whether we leave that to developer to handle.
+				return true;
+			},
+			uiShown: function () {
+				// The widget is rendered.
+				// Hide the loader.
+				document.getElementById('loader').style.display = 'none';
+			}
+		},
+		// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+		signInFlow: 'popup',
+		signInSuccessUrl: '',
+		signInOptions: [
+			firebase.auth.EmailAuthProvider.PROVIDER_ID
+		],
+	};
+	console.log(ui);
+	console.log(uiConfig);
+	ui.start('#firebaseui-auth-container', uiConfig);
 });
 
 app.get('/home/', function (req, res) {

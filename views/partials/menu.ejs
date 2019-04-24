@@ -18,7 +18,7 @@
 				<a class="nav-link" href="/learn">Learn more</a>
 			</li>
 			<div class="form-inline my-2 my-lg-0">
-				<a class="nav-link" style="right:0" href="javascript:logout()"> <span id="user_info"></span> | Logout</a>
+				<a class="nav-link" style="right:0" href="javascript:logout()" id="user_info"> | Logout</a>
 			</div>
 		</ul>
 
@@ -41,7 +41,7 @@
 	<script>
 		firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
-				document.getElementById("user_info").innerHTML = user.displayName;
+				document.getElementById("user_info").innerHTML += user.displayName;
 			}
 		});
 		function logout() {

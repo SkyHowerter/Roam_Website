@@ -3,6 +3,16 @@
 	body {
 		margin: 0px;
 		padding: 0px;
+
+	}
+
+	.masthead {
+		height: 50vh;
+		min-height: 500px;
+		background-image: url("../resources/img/beproudcapaabanner.jpg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 </style>
 <div id="app" class="container-fluid" style="margin:0px; padding: 0px">
@@ -23,7 +33,7 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" onclick="logout()" href="/" id = "login"> <span id="user_info"></span> | Logout</a>
+					<a class="nav-link" onclick="logout()" href="/" id="login"> <span id="user_info"></span> | Logout</a>
 				</li>
 			</ul>
 		</div>
@@ -60,5 +70,14 @@
 			}
 		</script>
 	</nav>
-	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Roam">
+	<header class="masthead">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-12 text-center">
+					<h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
+					<p class="lead">A great starter layout for a landing page</p>
+				</div>
+			</div>
+		</div>
+	</header>
 </div>

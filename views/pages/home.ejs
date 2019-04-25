@@ -222,28 +222,10 @@
 			}
 			for (i = 0; i < 5; i++) {
 				sliders[i] = document.getElementById("myRange" + (i + 1));
-				outputs[i] = document.getElementById("slide" + (i + 1));
-				outputs[i].innerHTML = sliders[i].value;
-				outputs[i].style.display = "none;";
-			}
-			sliders[0].oninput = function () {
-				outputs[0].innerHTML = this.value;
-			}
-			sliders[1].oninput = function () {
-				outputs[1].innerHTML = this.value;
-			}
-			sliders[2].oninput = function () {
-				outputs[2].innerHTML = this.value;
-			}
-			sliders[3].oninput = function () {
-				outputs[3].innerHTML = this.value;
-			}
-			sliders[4].oninput = function () {
-				outputs[4].innerHTML = this.value;
 			}
 			document.getElementById('find_dest').onclick = function () {
 				var stateObj = { foo: "bar" };
-				document.getElementById('find_dest').href = "/home/?s0=" + outputs[0].innerHTML + "&s1=" + outputs[1].innerHTML + "&s2=" + outputs[2].innerHTML + "&s3=" + outputs[3].innerHTML + "&s4=" + outputs[4].innerHTML;
+				document.getElementById('find_dest').href = "/home/?s0=" + sliders[0].value + "&s1=" + sliders[1].value + "&s2=" + sliders[2].value + "&s3=" + sliders[3].value + "&s4=" + sliders[4].value;
 			}
 		</script>
 

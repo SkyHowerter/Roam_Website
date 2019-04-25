@@ -51,7 +51,6 @@ firebase.auth().onAuthStateChanged(function (u) {
   if (u) {
     user = u;
   }
-  document.getElementById("user_info").href = "/";
 });
 app.get('/home/', function (req, res) {
   var sliders;
@@ -83,12 +82,17 @@ app.get('/home/', function (req, res) {
   } else {
     sliders = ["50", "50", "50", "50", "50"];
   }
-  var histquery = "select * from histories where email = " + user.email + ";";
-  var hist;
-  db.any(histquery).then(function (rows) {
-    hist = rows;
-  });
-  res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home", hist: hist });
+  if(user){
+    var histquery = "select * from histories where email = " + user.email + ";";
+    var hist;
+    db.any(histquery).then(function (rows) {
+      hist = rows;
+    });
+    res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home", hist: hist });
+  } else{
+    res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home" });
+
+  }
 });
 
 app.get('/learn', function (req, res) {

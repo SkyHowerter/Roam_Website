@@ -12,6 +12,7 @@ const dbConfig = process.env.DATABASE_URL;
 var db = psql(dbConfig);
 var data;
 var query = "select * from roam;";
+var user;
 var firebase = require('firebase');
 require('firebase/auth');
 require('firebase/database');
@@ -37,6 +38,12 @@ app.get('/login', function (req, res) {
     my_title: "Login Page"
   });
 });
+firebase.auth().onAuthStateChanged(function (u) {
+  if (u) {
+    user = u;
+  }
+  document.getElementById("user_info").href = "/";
+});
 var config = {
   apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
   authDomain: "roam-57db5.firebaseapp.com",
@@ -47,7 +54,6 @@ var config = {
 };
 firebase.initializeApp(config);
 app.get('/home/', function (req, res) {
-  var user = firebase.auth().currentUser;
   var sliders;
   var modal;
   if (Object.keys(req.query).length) {

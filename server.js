@@ -37,6 +37,15 @@ app.get('/login', function (req, res) {
     my_title: "Login Page"
   });
 });
+var config = {
+  apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
+  authDomain: "roam-57db5.firebaseapp.com",
+  databaseURL: "https://roam-57db5.firebaseio.com",
+  projectId: "roam-57db5",
+  storageBucket: "roam-57db5.appspot.com",
+  messagingSenderId: "646835090112"
+};
+firebase.initializeApp(config);
 app.get('/home/', function (req, res) {
   var user = firebase.auth().currentUser;
   var sliders;

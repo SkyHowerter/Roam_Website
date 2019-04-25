@@ -48,8 +48,8 @@
 					document.getElementById("user_info").innerText = user.displayName;
 				} else {
 					document.getElementById("login").innerHTML = "Login";
-					document.getElementById("user_info").href = "/";
 				}
+				document.getElementById("user_info").href = "/";
 			});
 			function logout() {
 				firebase.auth().signOut().then(function () {

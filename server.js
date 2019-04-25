@@ -21,9 +21,6 @@ db.any(query).then(function (rows) {
   data = rows;
 });
 
-db.any(query).then(function (rows) {
-  data = rows;
-});
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
 
@@ -55,6 +52,7 @@ firebase.auth().onAuthStateChanged(function (u) {
 app.get('/home/', function (req, res) {
   var sliders;
   var modal;
+  user = firebase.auth().currentUser;
   if (Object.keys(req.query).length) {
     sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];
     min = Number.MAX_SAFE_INTEGER;

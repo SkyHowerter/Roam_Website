@@ -224,7 +224,7 @@
 				sliders[i] = document.getElementById("myRange" + (i + 1));
 				outputs[i] = document.getElementById("slide" + (i + 1));
 				outputs[i].innerHTML = sliders[i].value;
-				outputs[i].style.display = "none;"
+				outputs[i].style.display = "none;";
 			}
 			sliders[0].oninput = function () {
 				outputs[0].innerHTML = this.value;

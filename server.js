@@ -44,15 +44,14 @@ var config = {
   messagingSenderId: "646835090112"
 };
 firebase.initializeApp(config);
-firebase.auth().onAuthStateChanged(function (u) {
-  if (u) {
-    user = u;
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    user = this.user;
   }
 });
 app.get('/home/', function (req, res) {
   var sliders;
   var modal;
-  user = firebase.auth().currentUser;
   console.log(user);
   if (Object.keys(req.query).length) {
     sliders = [req.query.s0, req.query.s1, req.query.s2, req.query.s3, req.query.s4];

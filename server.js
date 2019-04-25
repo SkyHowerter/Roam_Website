@@ -47,6 +47,7 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     user = this.user;
+    console.log(user);
   }
 });
 app.get('/home/', function (req, res) {

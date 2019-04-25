@@ -90,7 +90,7 @@ app.get('/home/', function (req, res) {
     });
     res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home", hist: hist });
   } else{
-    res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home" });
+    res.render('pages/home', { slides: sliders, modal: modal, my_title: "Roam. home", hist:null });
 
   }
 });

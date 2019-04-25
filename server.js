@@ -38,12 +38,6 @@ app.get('/login', function (req, res) {
     my_title: "Login Page"
   });
 });
-firebase.auth().onAuthStateChanged(function (u) {
-  if (u) {
-    user = u;
-  }
-  document.getElementById("user_info").href = "/";
-});
 var config = {
   apiKey: "AIzaSyBmO7JGyWsFJ01gQnAKrJdWSVtbAASD1qk",
   authDomain: "roam-57db5.firebaseapp.com",
@@ -53,6 +47,12 @@ var config = {
   messagingSenderId: "646835090112"
 };
 firebase.initializeApp(config);
+firebase.auth().onAuthStateChanged(function (u) {
+  if (u) {
+    user = u;
+  }
+  document.getElementById("user_info").href = "/";
+});
 app.get('/home/', function (req, res) {
   var sliders;
   var modal;

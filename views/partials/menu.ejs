@@ -23,7 +23,7 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" onclick="logout()" href="/"> <span id="user_info"></span> | Logout</a>
+					<a class="nav-link" onclick="logout()" href="/" id = "login"> <span id="user_info"></span> | Logout</a>
 				</li>
 			</ul>
 		</div>
@@ -45,9 +45,9 @@
 		<script>
 			firebase.auth().onAuthStateChanged(function (user) {
 				if (user) {
-					document.getElementById("user_info").innerHTML = user.displayName;
+					document.getElementById("user_info").innerText = user.displayName;
 				} else {
-					document.getElementById("user_info").innerHTML = "Login";
+					document.getElementById("login").innerHTML = "Login";
 					document.getElementById("user_info").href = "/";
 				}
 			});

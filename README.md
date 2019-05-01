@@ -32,30 +32,27 @@ Roam was deployed on heroku using code from the latest commit (5/1/19)
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [PostgreSQL](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Node.js](https://maven.apache.org/) - Dependency Management
+* [HTML/CSS](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+The contributing was done via AGILE method within our group. Most tasks were delegated and accomplished by their respective person. Any issues that came up the team combined knowledge together to fill in the gaps of our program.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* Alex Tsalyuk
+* Andre Dugas
+* Ari Schermer
+* Sky (Logan) Howerter
+* Chris Ramsey Jr.
+* Richard Diaz Bustos
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thanks to Sharan our TA who helped us out promptly with any questions we had in regards to our Lab and Projects
+* Thanks to all the group memebers who kept each other accountable to finish their projects by deadlines that we had set by     the group
+* Lastly, thanks to the CSCI 3308 team that gave us the platform to showcase a piece of our work and to push ourselves to work    in a real group development situtation

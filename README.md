@@ -13,11 +13,11 @@ The Roam website contains a series of ‘sliders’ in which the user can input 
 
 These sliders get user preferences for-
 
-*Price
-*Luxury
-*Distance from home
-*Average population age
-*Touristy vs Off the beaten path. 
+* Price
+* Luxury
+* Distance from home
+* Average population age
+* Touristy vs Off the beaten path. 
 
 If the user wishes to learn more about a country, they can visit the "Learn More" page to view various statistics about that country.
 

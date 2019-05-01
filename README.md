@@ -32,9 +32,9 @@ Roam was deployed on heroku using code from the latest commit (5/1/19)
 
 ## Built With
 
-* [PostgreSQL](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Node.js](https://maven.apache.org/) - Dependency Management
-* [HTML/CSS](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [PostgreSQL](https://www.postgresql.org/docs/) - The Database used
+* [Node.js](https://nodejs.org/en/docs/) - Frameworks used
+* [HTML/CSS](https://developer.mozilla.org/en-US/docs/Web/HTML, https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to     build the aesthetics and functionality of the website
 
 
 ## Contributing

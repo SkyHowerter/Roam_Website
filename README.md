@@ -23,18 +23,22 @@ If the user wishes to learn more about a country, they can visit the "Learn More
 
 
 ## Running the tests
-To view the website, first copy-paste the contents of "postgresql.txt" into your local postgres terminal. Then head to the directory where roam is saved in your terminal, and type "node server.js" in the command line. Alternatively, visit our Heroku deployment here: https://roam-csci-3308.herokuapp.com/
+Visit our Heroku deployment here: https://roam-csci-3308.herokuapp.com/
+
+To view the website locally, first copy-paste the contents of "postgresql.txt" into your local postgres terminal. Then head to the directory where roam is saved in your terminal, and type "node server.js" in the command line. If errors occur please make sure firebase, your local postgreSQL instance and your local Node.js files are all in correct configuration.
 
 
 ## Deployment
 
-Roam was deployed on heroku using code from the latest commit (5/1/19)
+Roam was deployed on heroku using code from the latest commit (5/1/19) (https://roam-csci-3308.herokuapp.com/)
 
 ## Built With
 
-* [PostgreSQL](https://www.postgresql.org/docs/) - The Database used
-* [Node.js](https://nodejs.org/en/docs/) - Frameworks used
-* [HTML/CSS](https://developer.mozilla.org/en-US/docs/Web/HTML, https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to     build the aesthetics and functionality of the website
+* [PostgreSQL](https://www.postgresql.org/docs/) - Database used
+* [Node.js](https://nodejs.org/en/docs/) - Server framework used
+* [HTML/CSS](https://developer.mozilla.org/en-US/docs/Web/HTML, https://developer.mozilla.org/en-US/docs/Web/CSS) - Used to build the aesthetics and functionality of the website
+* [Firebase](https://firebase.google.com/) - Authentication service
+* [Heroku](https://dashboard.heroku.com/) - Deployment environment
 
 
 ## Contributing

@@ -23,7 +23,7 @@ If the user wishes to learn more about a country, they can visit the "Learn More
 
 
 ## Running the tests
-To view the website, head to the directory where roam is saved in your terminal, and type "node server.js" in the command line.
+To view the website, first copy-paste the contents of "postgresql.txt" into your local postgres terminal. Then head to the directory where roam is saved in your terminal, and type "node server.js" in the command line. Alternatively, visit our Heroku deployment here: https://roam-csci-3308.herokuapp.com/
 
 
 ## Deployment

@@ -51,7 +51,7 @@ The contributing was done via AGILE method within our group. Most tasks were del
 * Alex Tsalyuk
 * Andre Dugas
 * Ari Schermer
-* Sky (Logan) Howerter
+* Sky Howerter
 * Chris Ramsey Jr.
 * Richard Diaz Bustos
 
